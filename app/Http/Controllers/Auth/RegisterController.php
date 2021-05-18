@@ -64,6 +64,7 @@ class RegisterController extends Controller
                 'email',
                 'max:255',
                 'unique:users',
+                'regex:/gmail/',
             ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
