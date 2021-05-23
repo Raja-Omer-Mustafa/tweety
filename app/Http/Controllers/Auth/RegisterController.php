@@ -76,7 +76,7 @@ class RegisterController extends Controller
                 'regex:/[@$!%*#?&]/', // must contain a special character
                 'confirmed'
             ],
-        ]);
+        ], ['password.regex' => 'Password must contain at least one number and both uppercase and lowercase letters and one special character.']);
     }
 
     /**
