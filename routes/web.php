@@ -46,5 +46,6 @@ Route::get('/profiles/{user:username}', 'ProfilesController@show')->name(
     'profile'
 );
 Route::get('/search/', 'ProfilesController@search')->name('search');
-
+Route::get('/contact', 'ContactusController@index');
+Route::post('/sendmail','ContactusController@sendMail');
 Auth::routes();

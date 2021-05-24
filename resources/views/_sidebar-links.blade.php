@@ -26,6 +26,14 @@
                 Profile
             </a>
         </li>
+           <li>
+        <a
+            class="font-bold text-lg mb-4 block"
+            href="/contact"
+        >
+            Contact
+        </a>
+    </li>
 
         <li>
             <form method="POST" action="{{ route('logout') }}">
