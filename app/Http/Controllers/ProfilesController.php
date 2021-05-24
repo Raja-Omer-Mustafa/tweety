@@ -43,12 +43,16 @@ class ProfilesController extends Controller
                 Rule::unique('users')->ignore($user),
             ],
             'password' => [
+                'required', 
                 'string',
-                'required',
                 'min:8',
-                'max:255',
-                'confirmed',
+                'regex:/[a-z]/',      // must contain at least one lowercase letter
+                'regex:/[A-Z]/',      // must contain at least one uppercase letter
+                'regex:/[0-9]/',      // must contain at least one digit
+                'regex:/[@$!%*#?&]/', // must contain a special character
+                'confirmed'
             ],
+            ['password.regex' => 'Password must contain at least one number and both uppercase and lowercase letters and one special character.'],
         ]);
 
         if (request('avatar')) {
