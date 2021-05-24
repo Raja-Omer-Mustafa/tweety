@@ -17,7 +17,7 @@ class ContactusController extends Controller
             'email' => 'required',
             'message' => 'required'
               ]);
-      $admin_email = "hamza.asghar728@gmail.com";
+      $admin_email = env('ADMIN_EMAIL');
       Mail::to($admin_email)->send(new ContactEmail($data));
        return response()->json(['success'=>'Data is successfully send']);
     }
