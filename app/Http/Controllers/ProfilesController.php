@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Http\Request;
 class ProfilesController extends Controller
 {
     public function show(User $user)
@@ -63,4 +63,18 @@ class ProfilesController extends Controller
 
         return redirect($user->path());
     }
+
+
+    public function search(Request $request){
+    // Get the search value from the request
+    $search = $request->input('search');
+
+    // Search in the title and body columns from the posts table
+    $posts = User::query()
+        ->where('username', 'LIKE', "%{$search}%")
+        ->orWhere('email', 'LIKE', "%{$search}%")
+        ->get();
+    // Return the search view with the resluts compacted
+    return view('explore', compact('posts'));
+}
 }
