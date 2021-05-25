@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactEmail;
+use Redirect;
+
 class ContactusController extends Controller
 {
     public function index()
@@ -19,6 +21,7 @@ class ContactusController extends Controller
               ]);
       $admin_email = env('ADMIN_EMAIL');
       Mail::to($admin_email)->send(new ContactEmail($data));
-       return response()->json(['success'=>'Data is successfully send']);
+      return Redirect::back()->with('success', 'Data is successfully send');
+      // return response()->json(['success'=>'Data is successfully send']);
     }
 }

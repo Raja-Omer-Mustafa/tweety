@@ -1,8 +1,15 @@
 @component('mail::message')
-You have a new message from {{$data['username']}},
-Email : {{$data['email']}}<br>
+# Contact Us Detail
 
-Subject : {{$data['message']}}<br>
+Information of User!
+
+@component('mail::table')
+| Name          | Value         |
+| ------------- |:-------------:|
+| User Name      | {{ $data['username'] }}  |
+| Email     | {{ $data['email'] }}  |
+| Message   | {{ $data['message'] }}  |
+@endcomponent
 
 Thanks,<br>
 {{ config('app.name') }}
