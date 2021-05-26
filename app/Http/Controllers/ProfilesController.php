@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 class ProfilesController extends Controller
 {
     public function show(User $user)
@@ -18,12 +19,12 @@ class ProfilesController extends Controller
         ]);
     }
 
-    public function edit(User $user)
+    public function edit(User $user )
     {
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user)
+    public function update(User $user ,Request $request)
     {
         $attributes = request()->validate([
             'username' => [
@@ -42,6 +43,18 @@ class ProfilesController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($user),
             ],
+            'date_of_birth' => [
+                'string',
+                'required',
+                'max:255',
+               
+            ],
+            'gender' => [
+                'string',
+                'required',
+                'max:255',
+                
+            ],
             'password' => [
                 'required', 
                 'string',
@@ -55,14 +68,19 @@ class ProfilesController extends Controller
             ['password.regex' => 'Password must contain at least one number and both uppercase and lowercase letters and one special character.'],
         ]);
 
-        if (request('avatar')) {
-            $attributes['avatar'] = request('avatar')->store('avatars');
-        }
+         if ($request->hasFile('avatar'))
+    {
+            $file = $request->file('avatar');
+            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
+            $name = $timestamp. '-' .$file->getClientOriginalName();
+            $user->avatar = $name;
+            $file->move(public_path().'/images/', $name);   
+            $user->save();
+            return redirect('/tweets');                  
+        }   
 
-        $user->update($attributes);
-
-        return redirect($user->path());
     }
+
 
 
     public function search(Request $request){
