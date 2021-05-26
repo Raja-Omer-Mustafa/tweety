@@ -39,13 +39,13 @@ Route::middleware('auth')->group(function () {
         'ProfilesController@update'
     )->middleware('can:edit,user');
 
-    Route::get('/explore', 'ExploreController@search');
+    Route::get('/explore', 'ExploreController@search')->name('explore');
 });
 
 Route::get('/profiles/{user:username}', 'ProfilesController@show')->name(
     'profile'
 );
 Route::get('/search/', 'ProfilesController@search')->name('search');
-Route::get('/contact', 'ContactusController@index');
-Route::post('/sendmail','ContactusController@sendMail');
+Route::get('/contact', 'ContactusController@index')->name('contact');
+Route::post('/sendmail','ContactusController@sendMail')->name('sendmail');
 Auth::routes();
