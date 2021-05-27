@@ -11,7 +11,7 @@
     <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href="/explore"
+            href="{{ route('explore') }}"
         >
             Explore
         </a>
@@ -29,7 +29,7 @@
            <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href="/contact"
+            href="{{ route('contact') }}"
         >
             Contact
         </a>

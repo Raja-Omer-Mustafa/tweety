@@ -24,9 +24,9 @@
         <section class="px-8 py-4 mb-6">
             <header class="container mx-auto">
                 <h1>
-                    <a href="/tweets">
+                    <a href="{{ route('home') }}">
                         <img
-                            src="/images/logo.svg"
+                            src="{{ asset('images/logo.svg') }}"
                             alt="Tweety"
                         >
                     </a>

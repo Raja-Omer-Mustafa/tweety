@@ -12,7 +12,7 @@
 
 <body class="bg-gray-300" style="font-family:Roboto">
     <div class="w-full h-screen flex items-center justify-center">
-        <form method="POST" action="/sendmail" class="w-full md:w-1/3 bg-white rounded-lg">
+        <form method="POST" action="{{ route('sendmail') }}" class="w-full md:w-1/3 bg-white rounded-lg">
         	@csrf
             <div class="flex font-bold justify-center mt-6">
                 <img class="h-20 w-20"
