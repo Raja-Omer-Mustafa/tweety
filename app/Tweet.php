@@ -23,7 +23,7 @@ class Tweet extends Model
 
 public function setFileAttribute($value)
     {
-        $this->attributes['file'] = asset('images/' . $value);
+        $this->attributes['file'] = asset('tweets/' . $value);
     }
 
 }

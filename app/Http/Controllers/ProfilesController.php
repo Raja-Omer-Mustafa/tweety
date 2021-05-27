@@ -45,14 +45,10 @@ class ProfilesController extends Controller
             ],
             'date_of_birth' => [
                 'string',
-                'required',
-                'max:255',
                
             ],
             'gender' => [
                 'string',
-                'required',
-                'max:255',
                 
             ],
             'password' => [
@@ -73,11 +69,14 @@ class ProfilesController extends Controller
             $file = $request->file('avatar');
             $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString()); 
             $name = $timestamp. '-' .$file->getClientOriginalName();
-            $user->avatar = $name;
-            $file->move(public_path().'/images/', $name);   
-            $user->save();
-            return redirect('/tweets');                  
-        }   
+            $file->move(public_path().'/images/', $name);
+            $attributes['avatar'] = $name;
+                             
+        } 
+        $user->update($attributes);
+        return redirect(route('profile', $user)); 
+  
+ return redirect($user->path());
 
     }
 
