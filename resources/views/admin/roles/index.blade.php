@@ -28,7 +28,7 @@
            
             <div class="row">
                 <div class="col-sm-12" id="no-more-tables">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-editable">
+                    <table class="table table-bordered table-striped mb-0" id="datatable-editable" style="table-layout: fixed;">
                         <thead>
                             <tr>
                                 <th>Role</th>
