@@ -49,6 +49,7 @@ Route::get('/search/', 'ProfilesController@search')->name('search');
 
 Route::get('/contact', 'ContactusController@index')->name('contact');
 Route::post('/sendmail','ContactusController@sendMail')->name('sendmail');
+
 Route::get('/index', 'AdminController@index');
 
 Auth::routes();
@@ -58,6 +59,8 @@ Route::middleware(['PermissionCheck','auth'])->group(function(){
  Route::resource('users', 'UserController');
 Route::resource('roles', 'RoleController');
 Route::resource('permissions', 'PermissionController');
+Route::get('/contact', 'ContactusController@index');
+Route::post('/sendmail','ContactusController@sendMail');
 
  
  }); 

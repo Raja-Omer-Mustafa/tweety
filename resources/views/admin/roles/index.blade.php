@@ -20,7 +20,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-12 mb-3">
-                    <div class="mb-4">
+                    <div class="mb-8">
                         <a href="{{ URL::to('roles/create') }}" class="btn btn-primary float-lg-right"><i class="fas fa-plus"></i> Add ROLE </a>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
 
                                 <td data-title="Role">{{ $role->name }}</td>
 
-                                <td data-title="Permissions">{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
+                                <td data-title="Permissions" style="white-space: nowrap;">{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
                                 <td data-title="Actions">
                                     
                                     <a href="{{ URL::to('roles/'.$role->id.'/edit') }}" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>

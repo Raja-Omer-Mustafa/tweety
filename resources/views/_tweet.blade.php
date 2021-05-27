@@ -20,7 +20,10 @@
 
         <p class="text-sm mb-3">
             {{ $tweet->body }}
+            
+
         </p>
+        <img src="{{ asset($tweet->file) }}" width="40">
 
         @auth
             <x-like-buttons :tweet="$tweet" />
