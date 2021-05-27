@@ -149,23 +149,17 @@
         </div>
 
          <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                   for="gender"
+         <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                   for="dateofbirth"
             >
-                Gender
+               Gender
             </label>
-
-            <input class="border border-gray-400 p-2 w-full"
-                   type="text"
-                   name="gender"
-                   id="gender"
-                   value="{{ $user->gender }}"
-                   required
-            >
-
-            @error('gender')
-                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-            @enderror
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <select id="  gender" name="gender" class="border border-gray-400 p-2 w-full">
+              <option value="Male" {{ ($user->gender == 'Male') ? 'selected' : '' }}>Male</option>
+              <option value="Female" {{ ($user->gender == 'Female') ? 'selected' : '' }}>Female</option>
+            </select>
+          </div>
         </div>
 
         <div class="mb-6">

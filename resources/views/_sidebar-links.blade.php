@@ -29,7 +29,7 @@
            <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href=""
+            href="{{ route('contact') }}"
         >
             Contact
         </a>

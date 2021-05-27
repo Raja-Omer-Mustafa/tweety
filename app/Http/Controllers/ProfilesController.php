@@ -45,14 +45,10 @@ class ProfilesController extends Controller
             ],
             'date_of_birth' => [
                 'string',
-                'required',
-                'max:255',
                
             ],
             'gender' => [
                 'string',
-                'required',
-                'max:255',
                 
             ],
             'password' => [
@@ -77,7 +73,10 @@ class ProfilesController extends Controller
             $file->move(public_path().'/images/', $name);   
             $user->save();
             return redirect('/tweets');                  
-        }   
+        } 
+        $user->update($attributes);
+  
+ return redirect($user->path());
 
     }
 
