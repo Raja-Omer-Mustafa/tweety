@@ -1,5 +1,5 @@
 <div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
-    <form method="POST" action="{{ route('tweets.store') }}">
+    <form method="POST" action="{{ route('tweets.store') }}" enctype="multipart/form-data">
         @csrf
 
         <textarea
@@ -9,6 +9,12 @@
             required
             autofocus
         ></textarea>
+        <div class="form-group">
+            
+        <label for="filename"></label>
+    <input type="file" name="file" id="file" class="form-control">
+    <span class="text-danger"> {{ $errors->first('file') }}</span>
+        </div>
 
         <hr class="my-4">
 

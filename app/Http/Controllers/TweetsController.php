@@ -20,10 +20,15 @@ class TweetsController extends Controller
         $attributes = request()->validate([
             'body' => 'required|max:255',
         ]);
+        $file = request()->file('file');
+        $name = $file->getClientOriginalName();
+        $file->move(public_path().'/tweets/', $name);
 
         Tweet::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
+            'file' => $name,
+            // $path = $attributes['file']->store('public/files'),
         ]);
 
         return redirect()->route('home');

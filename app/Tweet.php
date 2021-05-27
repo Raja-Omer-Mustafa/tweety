@@ -14,4 +14,16 @@ class Tweet extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getFileAttribute($value)
+    {
+          return asset($value ?: '/images/default-avatar.jpeg');
+        
+    }
+
+public function setFileAttribute($value)
+    {
+        $this->attributes['file'] = asset('images/' . $value);
+    }
+
 }
