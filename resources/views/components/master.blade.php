@@ -38,5 +38,10 @@
     </div>
 
     <script src="http://unpkg.com/turbolinks"></script>
+    <script type="text/javascript" defer>
+         $(document).ready(function() {
+            alert("Hello, world!");
+        });
+    </script>
 </body>
 </html>

@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable, Followable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -36,6 +38,11 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         return asset($value ?: '/images/default-avatar.jpeg');
+    }
+
+    public function setAvatarAttribute($value)
+    {
+        $this->attributes['avatar'] = asset('images/' . $value);
     }
 
     // public function setPasswordAttribute($value)

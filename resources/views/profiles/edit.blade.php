@@ -58,7 +58,7 @@
                        accept="image/*"
                 >
 
-                <img src="{{ $user->avatar }}"
+                <img src="{{ asset($user->avatar) }}"
                      alt="your avatar"
                      width="40"
                 >
@@ -128,6 +128,46 @@
             @enderror
         </div>
 
+           <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                   for="dateofbirth"
+            >
+                Date of birth
+            </label>
+
+            <input class="border border-gray-400 p-2 w-full"
+                   type="date"
+                   name="date_of_birth"
+                   id="date_of_birth"
+                   value="{{ $user->date_of_birth }}"
+                   required
+            >
+
+            @error('date_of_birth')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+         <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                   for="gender"
+            >
+                Gender
+            </label>
+
+            <input class="border border-gray-400 p-2 w-full"
+                   type="text"
+                   name="gender"
+                   id="gender"
+                   value="{{ $user->gender }}"
+                   required
+            >
+
+            @error('gender')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
         <div class="mb-6">
             <button type="submit"
                     class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mr-4"
@@ -137,5 +177,8 @@
 
             <a href="{{ $user->path() }}" class="hover:underline">Cancel</a>
         </div>
+
+
+
     </form>
 </x-app>
