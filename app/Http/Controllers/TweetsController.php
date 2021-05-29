@@ -22,7 +22,7 @@ class TweetsController extends Controller
         ]);
         $file = request()->file('file');
         $name = $file->getClientOriginalName();
-        $file->move(public_path().'/tweets/', $name);
+        $file->move(public_path().'/tweet/', $name);
 
         Tweet::create([
             'user_id' => auth()->id(),

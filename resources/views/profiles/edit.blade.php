@@ -129,18 +129,15 @@
         </div>
 
            <div class="mb-6">
-            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                   for="dateofbirth"
-            >
-                Date of birth
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="dateofbirth">
+              Date of birth
             </label>
 
             <input class="border border-gray-400 p-2 w-full"
-                   type="date"
-                   name="date_of_birth"
-                   id="date_of_birth"
-                   value="{{ $user->date_of_birth }}"
-                   required
+              type="date"
+              name="date_of_birth"
+              id="date_of_birth"
+              value="{{ $user->date_of_birth }}"
             >
 
             @error('date_of_birth')
@@ -148,14 +145,12 @@
             @enderror
         </div>
 
-         <div class="mb-6">
-         <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                   for="dateofbirth"
-            >
-               Gender
-            </label>
+        <div class="mb-6">
+          <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="dateofbirth">
+            Gender
+          </label>
           <div class="mt-1 sm:mt-0 sm:col-span-2">
-            <select id="  gender" name="gender" class="border border-gray-400 p-2 w-full">
+            <select id="gender" name="gender" class="border border-gray-400 p-2 w-full">
               <option value="Male" {{ ($user->gender == 'Male') ? 'selected' : '' }}>Male</option>
               <option value="Female" {{ ($user->gender == 'Female') ? 'selected' : '' }}>Female</option>
             </select>
@@ -163,13 +158,10 @@
         </div>
 
         <div class="mb-6">
-            <button type="submit"
-                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mr-4"
-            >
-                Submit
-            </button>
-
-            <a href="{{ $user->path() }}" class="hover:underline">Cancel</a>
+          <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mr-4" >
+              Submit
+          </button>
+          <a href="{{ $user->path() }}" class="hover:underline">Cancel</a>
         </div>
 
 

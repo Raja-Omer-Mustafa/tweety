@@ -17,13 +17,12 @@ class Tweet extends Model
 
     public function getFileAttribute($value)
     {
-          return asset($value ?: '/images/default-avatar.jpeg');
-        
+        return asset($value ?: '/images/default-avatar.jpeg');
     }
 
-public function setFileAttribute($value)
+    public function setFileAttribute($value)
     {
-        $this->attributes['file'] = asset('tweets/' . $value);
+        $this->attributes['file'] = asset('tweet/' . $value);
     }
 
 }
